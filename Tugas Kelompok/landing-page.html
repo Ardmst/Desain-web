@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kusda Gym - Health Inside, Fresh Outside</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --light-bg: #f8f9fa;
+            --white-bg: #ffffff;
+            --dark-text: #212529;
+            --secondary-text: #6c757d;
+            --primary-teal: #00bfa6;
+            --accent-yellow: #ffd60a;
+            --border-color: #dee2e6;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        /* General Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-family); background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 60px 20px; }
+        h2 { text-align: center; font-size: 2.2rem; font-weight: 700; margin-bottom: 40px; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 28px; background-color: var(--primary-teal); color: var(--white-bg); text-decoration: none; border-radius: 50px; font-weight: 700; transition: all 0.3s ease; border: 2px solid var(--primary-teal); cursor: pointer; }
+        .btn:hover { background-color: transparent; color: var(--primary-teal); }
+        .btn-secondary { display: inline-block; padding: 12px 28px; background-color: transparent; color: var(--primary-teal); text-decoration: none; border-radius: 50px; font-weight: 700; border: 2px solid var(--primary-teal); transition: all 0.3s ease; }
+        .btn-secondary:hover { background-color: var(--primary-teal); color: var(--white-bg); }
+
+        /* Header & Hero */
+        header {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('image/background.jpg') no-repeat center center/cover;
+            height: 70vh;
+            color: var(--white-bg);
+            position: relative;
+            z-index: 0;
+        }
+
+        /* Navigasi */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { color: var(--white-bg); text-decoration: none; font-weight: 700; }
+        .btn.btn-login { background-color: var(--white-bg); color: var(--dark-text); border-color: var(--white-bg); }
+        .btn.btn-login:hover { background-color: transparent; color: var(--white-bg); }
+
+        .hero-content {
+            text-align: center;
+            padding-top: 10vh;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 { font-size: 4rem; font-weight: 900; }
+        .hero-content p { font-size: 1.2rem; }
+
+        /* Transisi dari Hero ke Konten Putih */
+        main {
+            position: relative;
+            z-index: 1;
+            background-color: var(--light-bg);
+            margin-top: -50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Membership Section */
+        .membership-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .plan { background-color: var(--white-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid var(--border-color); transition: all 0.3s ease; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .plan:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .plan.popular { border-top: 5px solid var(--primary-teal); }
+        .plan.best-value { border-top: 5px solid var(--accent-yellow); }
+        .plan .tag { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--primary-teal); color: var(--white-bg); padding: 3px 15px; font-size: 0.7rem; font-weight: 700; border-radius: 0 0 5px 5px; }
+        .plan.best-value .tag { background: var(--accent-yellow); }
+        .plan .price { font-size: 2rem; font-weight: 700; color: var(--primary-teal); margin: 10px 0 5px 0; }
+        .plan .per-month { font-size: 0.75rem; color: var(--secondary-text); }
+        .plan .bonus { font-size: 0.9rem; margin-top: 15px; }
+        .corporate-membership { text-align: center; background: var(--white-bg); padding: 30px; margin-top: 40px; border-radius: 10px; border: 1px solid var(--border-color); }
+
+        /* Promo Section */
+        .promo-section { background-color: var(--accent-yellow); color: var(--dark-text); text-align: center; padding: 40px 20px; }
+        .countdown { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .time-block { background: rgba(0,0,0,0.05); padding: 15px; border-radius: 5px; }
+        /* Perubahan: Hapus JS, buat countdown statis agar tetap ada elemennya */
+        .time-block span { display: block; font-size: 2rem; font-weight: 700; }
+
+        /* Benefits Trigger Section */
+        .benefits-trigger-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; background: var(--white-bg); padding: 50px; border-radius: 10px; }
+        .benefits-trigger-section img { max-width: 100%; border-radius: 10px; }
+        .benefits-content h2 { text-align: left; font-size: 2rem; }
+        .benefits-content p { color: var(--secondary-text); margin: 20px 0; }
+
+        /* FAQ Section */
+        .faq-container details { background-color: var(--white-bg); margin-bottom: 10px; border-radius: 5px; padding: 20px; border: 1px solid var(--border-color); }
+        .faq-container summary { font-weight: 700; cursor: pointer; }
+
+        /* Footer */
+        footer { background-color: #212529; color: var(--light-bg); padding: 40px 20px; }
+        .footer-content { display: flex; justify-content: space-around; }
+        .footer-col a { display: block; color: var(--light-bg); text-decoration: none; margin-bottom: 5px; }
+
+        /* Modal Styles (Full-CSS :target) */
+        .modal { 
+            display: none; /* Default tersembunyi */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+            background-color: rgba(0,0,0,0.6); 
+        }
+
+        /* Tampilkan modal ketika URL fragment sesuai ID-nya */
+        .modal:target { 
+            display: block; 
+        }
+
+        .modal-content { 
+            display: flex; 
+            flex-direction: column; 
+            background-color: var(--white-bg); 
+            margin: 5% auto; 
+            width: 90%; 
+            max-width: 700px; 
+            max-height: 90vh; 
+            border-radius: 10px; 
+            position: relative; 
+            color: var(--dark-text); 
+            overflow: hidden; 
+        }
+        .modal-header { padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { margin: 0; font-size: 1.5rem; text-align: left; }
+        .close-btn { color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; text-decoration: none; }
+        .modal-body { padding: 0 20px; overflow-y: auto; }
+        
+        /* Tab Logic (Ganti JS dengan DETAILS/SUMMARY) */
+        .modal-tabs { 
+            border-bottom: 1px solid var(--border-color); 
+            margin: 0 -20px; 
+            padding: 0 20px; 
+            position: sticky; 
+            top: 0; 
+            background-color: var(--white-bg); 
+            z-index: 1; 
+            /* Sembunyikan Navigasi Tab lama yang diganti details */
+            display: none; 
+        }
+
+        /* Style untuk mengganti Tab Modal: details */
+        .tab-details {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .tab-details summary {
+            font-weight: 700;
+            padding: 15px 20px;
+            cursor: pointer;
+            background-color: var(--light-bg);
+            border-bottom: 1px solid var(--border-color);
+            list-style: none; /* Menghilangkan panah default */
+            position: relative;
+        }
+        
+        /* Menampilkan panah custom */
+        .tab-details summary::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tab-details[open] summary::after {
+            content: "-";
+        }
+        
+        /* Konten Details */
+        .tab-details-content {
+            padding: 20px;
+        }
+        /* Akhir Style untuk mengganti Tab Modal */
+
+        .benefit-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .benefit-icon { width: 32px; height: 32px; flex-shrink: 0; }
+        .benefit-item h4 { margin: 0 0 5px 0; font-size: 1.1rem; }
+        .benefit-item p { margin: 0; color: var(--secondary-text); }
+
+        .class-category { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; margin-top: 15px; }
+        .class-list-image { width: 100%; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+
+        .modal-footer { padding: 20px; border-top: 1px solid var(--border-color); text-align: right; }
+
+        /* Kode CSS Baru untuk Diskon & Harga Coret */
+        .plan .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e53935;
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .plan .original-price {
+            color: var(--secondary-text);
+            text-decoration: line-through;
+            font-size: 1rem;
+            margin: 10px 0 -5px 0;
+        }
+
+        .plan .price {
+            margin-top: 0;
+        }
+
+        /* Responsif Sederhana */
+        @media (max-width: 768px) {
+            .benefits-trigger-section {
+                grid-template-columns: 1fr;
+            }
+            .benefits-content h2 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-text">KUSDA GYM</div>
+            <ul>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="login.html" class="btn btn-login">Login</a>
+        </nav>
+        <div class="hero-content">
+            <h1>KUSDA GYM</h1>
+            <p>HEALTH INSIDE, FRESH OUTSIDE</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="membership" class="container">
+            <div class="membership-plans">
+                <div class="plan">
+                    <div class="discount-badge">20%</div>
+                    <h3>6 Bulan</h3>
+                    <p class="original-price">Rp325.000</p>
+                    <p class="price">Rp260.000<span class="per-month">/bln</span></p>
+                    <p class="total">Total Rp1.560.000</p>
+                    <p class="bonus">Bonus 1 Sesi Personal Trainer Gratis</p>
+                </div>
+
+                <div class="plan popular">
+                    <span class="tag">MOST POPULAR</span>
+                    <div class="discount-badge">32%</div>
+                    <h3>12 Bulan</h3>
+                    <p class="original-price">Rp275.000</p>
+                    <p class="price">Rp187.000<span class="per-month">/bln</span></p>
+                    <p class="total">Total Rp2.220.000</p>
+                    <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+                </div>
+
+                <div class="plan">
+                    <div class="discount-badge">36%</div>
+                    <h3>18 Bulan</h3>
+                    <p class="original-price">Rp259.000</p>
+                    <p class="price">Rp165.000<span class="per-month">/bln</span></p>
+                    <p class="total">Total Rp2.970.000</p>
+                    <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+                </div>
+
+                <div class="plan best-value">
+                    <span class="tag">BEST VALUE</span>
+                    <div class="discount-badge">38%</div>
+                    <h3>24 Bulan</h3>
+                    <p class="original-price">Rp249.000</p>
+                    <p class="price">Rp154.000<span class="per-month">/bln</span></p>
+                    <p class="total">Total Rp3.696.000</p>
+                    <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+                </div>
+            </div>
+            <div class="corporate-membership">
+                <h3>Corporate Membership</h3>
+                <p>Fasilitas sehat untuk karyawan perusahaan</p>
+                <a href="mailto:careers@kusdagym.id" class="btn-secondary">Kontak Sales</a>
+            </div>
+        </section>
+
+        <section class="promo-section">
+            <div class="container">
+                <h2>SPECIAL PROMO</h2>
+                <p>Diskon tambahan s/d 15% + Gratis s/d 2 sesi PT</p>
+                <div id="countdown" class="countdown">
+                    <div class="time-block"><span id="days">03</span>Hari</div>
+                    <div class="time-block"><span id="hours">12</span>Jam</div>
+                    <div class="time-block"><span id="minutes">45</span>Menit</div>
+                    <div class="time-block"><span id="seconds">50</span>Detik</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="benefits" class="container benefits-trigger-section">
+             <img src="image/benefit.jpg" alt="Orang berolahraga di gym">
+             <div class="benefits-content">
+                <h2>Akses Fasilitas Premium & Kelas Tanpa Batas</h2>
+                <p>Lihat semua keuntungan yang akan kamu dapatkan sebagai member eksklusif Kusda Gym.</p>
+                <a href="#benefitModal" id="openModalBtn" class="btn">Lihat Benefit Membership</a>
+             </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>Dapatkah saya bergabung secara online?</summary>
+                    <p>Tentu! Anda dapat mendaftar langsung melalui aplikasi kami atau website ini.</p>
+                </details>
+                <details>
+                    <summary>Usia minimal member Kusda Gym?</summary>
+                    <p>Usia minimal untuk menjadi member kami adalah 17 tahun.</p>
+                </details>
+                 <details>
+                    <summary>Cara menggunakan jasa Personal Trainer (PT)?</summary>
+                    <p>Anda dapat membeli sesi PT secara terpisah atau melalui paket membership tertentu. Jadwalkan sesi Anda langsung di resepsionis.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>Partnership</h4>
+                <a href="#">Brand Partnership</a>
+                <a href="#">Corporate Membership</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <a href="#">careers@kusdagym.id</a>
+                <a href="#">partnership@kusdagym.id</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="benefitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Benefit Membership</h2>
+                <a href="#" class="close-btn">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    </div>
+
+                <details class="tab-details" open>
+                    <summary>Fasilitas</summary>
+                    <div class="tab-details-content">
+                        <div class="benefit-item">
+                            <img src="ui/barbell.svg" alt="Gym Floor Icon" class="benefit-icon">
+                            <div>
+                                <h4>Gym Floor</h4>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/door.svg" alt="Functional Area Icon" class="benefit-icon">
+                            <div>
+                                <h4>Functional Area</h4>
+                                <p>Area latihan bebas dilengkapi gym turf</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/users-group.svg" alt="Ruang Kelas Icon" class="benefit-icon">
+                            <div>
+                                <h4>Ruang Kelas</h4>
+                                <p>Dapat dipakai bebas ketika jadwal kosong</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/scale.svg" alt="Scale Icon" class="benefit-icon">
+                            <div>
+                                <h4>Body Weight & Composition Scale</h4>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/sofa.svg" alt="Lounge Icon" class="benefit-icon">
+                            <div>
+                                <h4>Lounge</h4>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/lock-square.svg" alt="Locker Icon" class="benefit-icon">
+                            <div>
+                                <h4>Locker</h4>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/droplet.svg" alt="Shower Icon" class="benefit-icon">
+                            <div>
+                                <h4>Shower</h4>
+                                <p>Tersedia air panas</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/user.svg" alt="Hair Dryer Icon" class="benefit-icon">
+                            <div>
+                                <h4>Hair Dryer</h4>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                
+                <details class="tab-details">
+                    <summary>Kelas</summary>
+                    <div class="tab-details-content">
+                        <div class="class-category">
+                            <img src="ui/treadmill.png" alt="Cardio Icon" class="benefit-icon">
+                            <div>
+                                <h4>Cardio</h4>
+                                <p>Membakar kalori dan menjaga kesehatan jantung</p>
+                            </div>
+                        </div>
+                        <img src="image/Kelas 1.png" alt="Daftar Kelas Cardio" class="class-list-image">
+                        
+                        <div class="class-category">
+                            <img src="ui/dance.png" alt="Dance Icon" class="benefit-icon">
+                            <div>
+                                <h4>Dance</h4>
+                                <p>Workout disertai beragam lagu dan koreografi</p>
+                            </div>
+                        </div>
+                        <img src="image/Kelas 2.png" alt="Daftar Kelas Dance" class="class-list-image">
+
+                        <div class="class-category">
+                            <img src="ui/arm.png" alt="Strength Icon" class="benefit-icon">
+                            <div>
+                                <h4>Strength</h4>
+                                <p>Membentuk dan meningkatkan kekuatan otot</p>
+                            </div>
+                        </div>
+                        <img src="image/Kelas 3.png" alt="Daftar Kelas Strength" class="class-list-image">
+                        
+                        <div class="class-category">
+                            <img src="ui/relaxing.png" alt="Mind & Body Icon" class="benefit-icon">
+                            <div>
+                                <h4>Mind & Body</h4>
+                                <p>Melatih tubuh dan pikiran serta mengurangi stress</p>
+                            </div>
+                        </div>
+                        <img src="image/Kelas 4.png" alt="Daftar Kelas Mind & Body" class="class-list-image">
+                    </div>
+                </details>
+
+                <details class="tab-details">
+                    <summary>Alat Gym</summary>
+                    <div class="tab-details-content">
+                        <div class="benefit-item">
+                            <img src="ui/tool.png" alt="Machine Icon" class="benefit-icon">
+                            <div>
+                                <h4>Machine</h4>
+                                <p>Smith Machine, Cable Machine, Leg, Chest, Dip Chin, dan lainnya*</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/dumbell.png" alt="Free Weight Icon" class="benefit-icon">
+                            <div>
+                                <h4>Free weight</h4>
+                                <p>Dumbell, Kettlebell, Plates</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/treadmill2.png" alt="Cardio Machine Icon" class="benefit-icon">
+                            <div>
+                                <h4>Cardio</h4>
+                                <p>Treadmill, Sepeda statis*</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/horizontal-bar.png" alt="Lifting Bar Icon" class="benefit-icon">
+                            <div>
+                                <h4>Lifting Bar</h4>
+                                <p>Olympic Bar, EZ Curl Bar</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/mattress.png" alt="Mattress Icon" class="benefit-icon">
+                            <div>
+                                <h4>Mattress</h4>
+                                <p>Yoga mat anti-slip</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <img src="ui/pilates-ball.png" alt="Lain-lain Icon" class="benefit-icon">
+                            <div>
+                                <h4>Lain-lain</h4>
+                                <p>Ball, TRX, VIPR, Battle Rope, dan lainnya*</p>
+                            </div>
+                        </div>
+                        <small>*Ketersediaan bervariasi antar club.</small>
+                    </div>
+                </details>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn close-modal-btn">Tutup</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

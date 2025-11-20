@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Latihan Modul 8 Bootstrap</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #e9ecef; 
+        }
+        .header-nav, .footer-bar {
+            background-color: #ced4da; 
+            border-bottom: 1px solid #adb5bd;
+            border-top: 1px solid #adb5bd;
+        }
+        .card-body-testimoni {
+            min-height: 300px; 
+        }
+        .card-body-kritik, .card-body-saran {
+            min-height: 140px;
+        }
+        .card-header {
+            background-color: #ced4da;
+            border-bottom: 1px solid #adb5bd;
+        }
+        .card {
+            border: 1px solid #adb5bd;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar header-nav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="#">NAMA: Rifkhi Ardi Mustaqim</a>
+            <span class="navbar-text fw-bold">
+                NIM: K3524033
+            </span>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="row">
+
+            <div class="col-lg-8 col-md-12 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">TESTIMONI</h5>
+                    </div>
+                    <div class="card-body card-body-testimoni">
+                        <p>[Tulis testimoni Anda di sini...]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">KRITIK</h5>
+                    </div>
+                    <div class="card-body card-body-kritik">
+                         <p>[Tulis kritik Anda di sini...]</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">SARAN</h5>
+                    </div>
+                    <div class="card-body card-body-saran">
+                         <p>[Tulis saran Anda di sini...]</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-bar p-3 text-center fixed-bottom">
+        <div class="container">
+            <span class="text-dark fw-bold">FOOTER</span>
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

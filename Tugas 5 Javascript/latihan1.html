@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan 1 - Kalkulator</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;     
+        }
+        button {
+            width: 48%;
+            padding: 10px;
+            margin: 1%;
+            cursor: pointer;
+        }
+        #hasil-wrapper {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+        #hasil {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Kalkulator Ard</h2>
+        
+        <label for="angka1">Angka 1:</label>
+        <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+        
+        <label for="angka2">Angka 2:</label>
+        <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+        
+        <button onclick="jumlah()">Jumlah (+)</button>
+        <button onclick="kurang()">Kurang (-)</button>
+        <button onclick="kali()">Kali (x)</button>
+        <button onclick="bagi()">Bagi (/)</button>
+        
+        <div id="hasil-wrapper">
+            <span>Hasil: </span>
+            <span id="hasil">0</span>
+        </div>
+    </div>
+
+    <script>
+        function jumlah() {
+            var input1 = document.getElementById("angka1");
+            var input2 = document.getElementById("angka2");
+            var hasilElemen = document.getElementById("hasil");
+
+            var a = parseFloat(input1.value);
+            var b = parseFloat(input2.value);
+
+            if (isNaN(a)) a = 0;
+            if (isNaN(b)) b = 0;
+
+            var hasil = a + b;
+            hasilElemen.innerHTML = hasil;
+        }
+
+        function kurang() {
+            var input1 = document.getElementById("angka1");
+            var input2 = document.getElementById("angka2");
+            var hasilElemen = document.getElementById("hasil");
+
+            var a = parseFloat(input1.value);
+            var b = parseFloat(input2.value);
+
+            if (isNaN(a)) a = 0;
+            if (isNaN(b)) b = 0;
+
+            var hasil = a - b;
+            hasilElemen.innerHTML = hasil;
+        }
+
+        function kali() {
+            var input1 = document.getElementById("angka1");
+            var input2 = document.getElementById("angka2");
+            var hasilElemen = document.getElementById("hasil");
+
+            var a = parseFloat(input1.value);
+            var b = parseFloat(input2.value);
+
+            if (isNaN(a)) a = 0;
+            if (isNaN(b)) b = 0;
+
+            var hasil = a * b;
+            hasilElemen.innerHTML = hasil;
+        }
+
+        function bagi() {
+            var input1 = document.getElementById("angka1");
+            var input2 = document.getElementById("angka2");
+            var hasilElemen = document.getElementById("hasil");
+
+            var a = parseFloat(input1.value);
+            var b = parseFloat(input2.value);
+
+            if (isNaN(a)) a = 0;
+            if (isNaN(b)) b = 0;
+            
+            // Cek pembagian nol
+            if (b === 0) {
+                hasilElemen.innerHTML = "Error: Dibagi 0";
+            } else {
+                var hasil = a / b;
+                hasilElemen.innerHTML = hasil;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 1 - Highlight Hover</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; }
+        p { 
+            padding: 10px; 
+            border: 1px solid #eee; 
+            transition: background-color 0.3s; 
+            cursor: pointer;
+        }
+        p:hover { background-color: #f9f9f9; }
+
+        mark { 
+            background-color: yellow; 
+            color: red; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Latihan 1 - Highlight Kalimat (Hover)</h1>
+    
+    <p>The Faculty of Teacher Training and Education, Sebelas Maret University, Surakarta is an Educational Personnel Education Institution (LPTK) which has 24 study programs in 6 majors. Each study program has its own characteristics in producing superior, strong and intelligent educational staff.</p>
+    
+    <p>The Informatics and Computer Technology Education (PTIK) study program is planned to take shelter in the management of the Engineering and Vocational Education (PTK) department. This placement revises our previous statement, where the PTIK study program is under the P.MIPA department. PTIK is a study program that will produce graduates who are prioritized to teach in vocational programs. So, it would be better if PTIK was under the PTK department which oversees vocational programs such as Building Engineering Education, and Mechanical Engineering Education. To meet the needs of lecturers in the field of information technology that cannot be met by the PTK department, PTIK will conduct resource sharing with the mathematics study program.</p>
+
+    <script type"text/javascript">
+    $(document).ready(function(){
+
+        let phrases = [
+            "Faculty of Teacher Training and Education",
+            "Sebelas Maret University",
+            "Surakarta",
+            "Educational Personnel Education Institution (LPTK)",
+            "24 study programs",
+            "6 majors",
+            "superior, strong and intelligent educational staff",
+            "Informatics and Computer Technology Education (PTIK)",
+            "Engineering and Vocational Education (PTK)",
+            "revises our previous statement",
+            "P.MIPA",
+            "PTIK", 
+            "prioritized to teach in vocational programs",
+            "PTK department",
+            "Building Engineering Education, and Mechanical Engineering Education",
+            "resource sharing",
+            "mathematics study program"
+        ];
+
+        function escapeRegExp(string) {
+            return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        }
+
+        phrases.sort((a, b) => b.length - a.length);
+
+        $('p').each(function(){
+            $(this).data('originalHtml', $(this).html());
+        });
+
+        $('p').hover(
+            function() { 
+
+                let newHtml = $(this).data('originalHtml');
+                
+                phrases.forEach(function(phrase) {
+                    let escapedPhrase = escapeRegExp(phrase);
+                    let regex = new RegExp(escapedPhrase, 'g');
+                    newHtml = newHtml.replace(regex, '<mark>' + phrase + '</mark>');
+                });
+
+                $(this).html(newHtml); 
+            },
+            function() { 
+
+                $(this).html($(this).data('originalHtml')); 
+            }
+        );
+
+    });
+    </script>
+
+</body>
+</html>

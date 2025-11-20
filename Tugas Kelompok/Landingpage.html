@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kusda Gym - Health Inside, Fresh Outside</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-text">KUSDA GYM</div>
+            <ul>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="login.html" class="btn btn-login">Login</a>
+        </nav>
+        <div class="hero-content">
+            <h1>KUSDA GYM</h1>
+            <p>HEALTH INSIDE, FRESH OUTSIDE</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="membership" class="container">
+    <div class="membership-plans">
+        <div class="plan">
+            <div class="discount-badge">20%</div>
+            <h3>6 Bulan</h3>
+            <p class="original-price">Rp325.000</p>
+            <p class="price">Rp260.000<span class="per-month">/bln</span></p>
+            <p class="total">Total Rp1.560.000</p>
+            <p class="bonus">Bonus 1 Sesi Personal Trainer Gratis</p>
+        </div>
+
+        <div class="plan popular">
+            <span class="tag">MOST POPULAR</span>
+            <div class="discount-badge">32%</div>
+            <h3>12 Bulan</h3>
+            <p class="original-price">Rp275.000</p>
+            <p class="price">Rp187.000<span class="per-month">/bln</span></p>
+            <p class="total">Total Rp2.220.000</p>
+            <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+        </div>
+
+        <div class="plan">
+            <div class="discount-badge">36%</div>
+            <h3>18 Bulan</h3>
+            <p class="original-price">Rp259.000</p>
+            <p class="price">Rp165.000<span class="per-month">/bln</span></p>
+            <p class="total">Total Rp2.970.000</p>
+            <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+        </div>
+
+        <div class="plan best-value">
+            <span class="tag">BEST VALUE</span>
+            <div class="discount-badge">38%</div>
+            <h3>24 Bulan</h3>
+            <p class="original-price">Rp249.000</p>
+            <p class="price">Rp154.000<span class="per-month">/bln</span></p>
+            <p class="total">Total Rp3.696.000</p>
+            <p class="bonus">Bonus 2 Sesi Personal Trainer Gratis</p>
+        </div>
+    </div>
+    <div class="corporate-membership">
+        <h3>Corporate Membership</h3>
+        <p>Fasilitas sehat untuk karyawan perusahaan</p>
+        <a href="mailto:careers@kusdagym.id" class="btn-secondary">Kontak Sales</a>
+    </div>
+</section>
+
+        <section class="promo-section">
+            <div class="container">
+                <h2>SPECIAL PROMO</h2>
+                <p>Diskon tambahan s/d 15% + Gratis s/d 2 sesi PT</p>
+                <div id="countdown" class="countdown">
+                    <div class="time-block"><span id="days">00</span>Hari</div>
+                    <div class="time-block"><span id="hours">00</span>Jam</div>
+                    <div class="time-block"><span id="minutes">00</span>Menit</div>
+                    <div class="time-block"><span id="seconds">00</span>Detik</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="benefits" class="container benefits-trigger-section">
+             <img src="image/benefit.jpg" alt="Orang berolahraga di gym">
+             <div class="benefits-content">
+                <h2>Akses Fasilitas Premium & Kelas Tanpa Batas</h2>
+                <p>Lihat semua keuntungan yang akan kamu dapatkan sebagai member eksklusif Kusda Gym.</p>
+                <button id="openModalBtn" class="btn">Lihat Benefit Membership</button>
+             </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>Dapatkah saya bergabung secara online?</summary>
+                    <p>Tentu! Anda dapat mendaftar langsung melalui aplikasi kami atau website ini.</p>
+                </details>
+                <details>
+                    <summary>Usia minimal member Kusda Gym?</summary>
+                    <p>Usia minimal untuk menjadi member kami adalah 17 tahun.</p>
+                </details>
+                 <details>
+                    <summary>Cara menggunakan jasa Personal Trainer (PT)?</summary>
+                    <p>Anda dapat membeli sesi PT secara terpisah atau melalui paket membership tertentu. Jadwalkan sesi Anda langsung di resepsionis.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>Partnership</h4>
+                <a href="#">Brand Partnership</a>
+                <a href="#">Corporate Membership</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <a href="#">careers@kusdagym.id</a>
+                <a href="#">partnership@kusdagym.id</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="benefitModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Benefit Membership</h2>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="modal-tabs">
+                <button class="tab-link active" data-tab="fasilitas">Fasilitas</button>
+                <button class="tab-link" data-tab="kelas">Kelas</button>
+                <button class="tab-link" data-tab="alat">Alat Gym</button>
+            </div>
+
+            <div id="fasilitas" class="tab-content active">
+                <div class="benefit-item">
+                    <img src="ui/barbell.svg" alt="Gym Floor Icon" class="benefit-icon">
+                    <div>
+                        <h4>Gym Floor</h4>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/door.svg" alt="Functional Area Icon" class="benefit-icon">
+                    <div>
+                        <h4>Functional Area</h4>
+                        <p>Area latihan bebas dilengkapi gym turf</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/users-group.svg" alt="Ruang Kelas Icon" class="benefit-icon">
+                    <div>
+                        <h4>Ruang Kelas</h4>
+                        <p>Dapat dipakai bebas ketika jadwal kosong</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/scale.svg" alt="Scale Icon" class="benefit-icon">
+                    <div>
+                        <h4>Body Weight & Composition Scale</h4>
+                    </div>
+                </div>
+                 <div class="benefit-item">
+                    <img src="ui/sofa.svg" alt="Lounge Icon" class="benefit-icon">
+                    <div>
+                        <h4>Lounge</h4>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/lock-square.svg" alt="Locker Icon" class="benefit-icon">
+                    <div>
+                        <h4>Locker</h4>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/droplet.svg" alt="Shower Icon" class="benefit-icon">
+                    <div>
+                        <h4>Shower</h4>
+                         <p>Tersedia air panas</p>
+                    </div>
+                </div>
+                 <div class="benefit-item">
+                    <img src="ui/user.svg" alt="Hair Dryer Icon" class="benefit-icon">
+                    <div>
+                        <h4>Hair Dryer</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="kelas" class="tab-content">
+                <div class="class-category">
+                    <img src="ui/treadmill.png" alt="Cardio Icon" class="benefit-icon">
+                    <div>
+                        <h4>Cardio</h4>
+                        <p>Membakar kalori dan menjaga kesehatan jantung</p>
+                    </div>
+                </div>
+                <img src="image/Kelas 1.png" alt="Daftar Kelas Cardio" class="class-list-image">
+                
+                <div class="class-category">
+                    <img src="ui/dance.png" alt="Dance Icon" class="benefit-icon">
+                    <div>
+                        <h4>Dance</h4>
+                        <p>Workout disertai beragam lagu dan koreografi</p>
+                    </div>
+                </div>
+                <img src="image/Kelas 2.png" alt="Daftar Kelas Dance" class="class-list-image">
+
+                <div class="class-category">
+                    <img src="ui/arm.png" alt="Strength Icon" class="benefit-icon">
+                    <div>
+                        <h4>Strength</h4>
+                        <p>Membentuk dan meningkatkan kekuatan otot</p>
+                    </div>
+                </div>
+                <img src="image/Kelas 3.png" alt="Daftar Kelas Strength" class="class-list-image">
+                
+                <div class="class-category">
+                    <img src="ui/relaxing.png" alt="Mind & Body Icon" class="benefit-icon">
+                    <div>
+                        <h4>Mind & Body</h4>
+                        <p>Melatih tubuh dan pikiran serta mengurangi stress</p>
+                    </div>
+                </div>
+                <img src="image/Kelas 4.png" alt="Daftar Kelas Mind & Body" class="class-list-image">
+            </div>
+
+            <div id="alat" class="tab-content">
+                <div class="benefit-item">
+                    <img src="ui/tool.png" alt="Machine Icon" class="benefit-icon">
+                    <div>
+                        <h4>Machine</h4>
+                        <p>Smith Machine, Cable Machine, Leg, Chest, Dip Chin, dan lainnya*</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/dumbell.png" alt="Free Weight Icon" class="benefit-icon">
+                    <div>
+                        <h4>Free weight</h4>
+                        <p>Dumbell, Kettlebell, Plates</p>
+                    </div>
+                </div>
+                 <div class="benefit-item">
+                    <img src="ui/treadmill2.png" alt="Cardio Machine Icon" class="benefit-icon">
+                    <div>
+                        <h4>Cardio</h4>
+                        <p>Treadmill, Sepeda statis*</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/horizontal-bar.png" alt="Lifting Bar Icon" class="benefit-icon">
+                    <div>
+                        <h4>Lifting Bar</h4>
+                        <p>Olympic Bar, EZ Curl Bar</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <img src="ui/mattress.png" alt="Mattress Icon" class="benefit-icon">
+                    <div>
+                        <h4>Mattress</h4>
+                        <p>Yoga mat anti-slip</p>
+                    </div>
+                </div>
+                 <div class="benefit-item">
+                    <img src="ui/pilates-ball.png" alt="Lain-lain Icon" class="benefit-icon">
+                    <div>
+                        <h4>Lain-lain</h4>
+                        <p>Ball, TRX, VIPR, Battle Rope, dan lainnya*</p>
+                    </div>
+                </div>
+                <small>*Ketersediaan bervariasi antar club.</small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn close-modal-btn">Tutup</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

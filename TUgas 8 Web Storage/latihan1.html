@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Storage</title>
+</head>
+<body>
+    <center>
+        <h1 id="greeting">Selamat Datang, Member!</h1> 
+        <button onclick="gantiNama()">Masukkan Nama</button>
+        
+        <button onclick="hapusNama()" style="background-color: darkred; color: white;">Hapus Nama</button>
+    </center>
+
+    <script type="text/javascript">
+        const textElement = document.getElementById('greeting');
+        
+        const storedName = localStorage.getItem('nama'); 
+        
+        if (storedName) {
+            textElement.innerHTML = 'Halo, ' + storedName + '!';
+        }
+
+        function gantiNama() {
+            let nama = prompt('Masukkan nama Anda:'); 
+            
+            if (nama && nama.trim() !== "") {
+                localStorage.setItem('nama', nama); 
+                textElement.innerHTML = 'Halo, ' + nama + '!';
+            } else {
+                alert('Nama tidak boleh kosong!');
+            }
+        }
+
+        function hapusNama() {
+            localStorage.removeItem('nama');
+            textElement.innerHTML = 'Selamat Datang, Member!';
+            alert('Data nama member berhasil dihapus!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Latihan 2 - Jam Dan Hari Digital</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        body { 
+            text-align: center; 
+            font-family: 'Times New Roman', Times, serif; 
+            margin-top: 50px; 
+        }
+        #tanggal {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px; 
+        }
+
+        #jam { 
+            font-size: 2.5em; 
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px; 
+        }
+        #start { 
+            padding: 8px 16px; 
+            font-size: 1em; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="tanggal">Placeholder Tanggal</h2>
+    
+    <h1 id="jam">00:00:00</h1>
+    <br>
+    
+    <button id="start">START/STOP</button>
+
+    <script>
+        $(document).ready(function(){
+            
+            var clockInterval; 
+            var isRunning = false; 
+
+            var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            var namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 
+                           'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+            function padZero(num) {
+                return (num < 10) ? '0' + num : num;
+            }
+
+            function updateClock() {
+                var now = new Date();
+                
+                var h = padZero(now.getHours());
+                var m = padZero(now.getMinutes());
+                var s = padZero(now.getSeconds());
+                var formattedTime = h + ':' + m + ':' + s;
+
+                var dayName = namaHari[now.getDay()];
+                var dayDate = now.getDate();
+                var monthName = namaBulan[now.getMonth()];
+                var year = now.getFullYear();
+                var formattedDate = dayName + ', ' + dayDate + ' ' + monthName + ' ' + year;
+
+                $('#tanggal').text(formattedDate);
+                $('#jam').text(formattedTime);
+            }
+
+            $('#start').click(function(){
+                if (isRunning) {
+                    clearInterval(clockInterval);
+                    isRunning = false;
+                } else {
+                    updateClock(); 
+                    clockInterval = setInterval(updateClock, 1000);
+                    isRunning = true;
+                }
+            });
+
+            updateClock();
+        });
+    </script>
+
+</body>
+</html>

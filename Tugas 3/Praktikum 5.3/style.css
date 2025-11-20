@@ -1,0 +1,200 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; 
+}
+
+h2, #judul a, .posttitle {
+    font-weight: 700; 
+}
+
+.desc {
+    font-weight: 300; 
+}
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+#wrap::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#kiri {
+    width: 250px;
+    height: auto;
+    float: left;
+    background-color: white;
+    margin: 0 0 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+    border-top-left-radius: 50px;
+}
+
+#kiri h2 {
+    margin: 0;
+    padding: 5px 12px;
+    color: white;
+    font-size: 20px;
+    background: darkblue;
+}
+
+#kiri ul {
+    margin: 0 0 20px 20px;
+    padding: 0;
+    list-style: none;
+    width: 200px;
+}
+
+#kiri a {
+    display: block;
+    padding: 3px 10px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px dotted blue;
+}
+
+#kiri a:hover {
+    background: blue;
+    color: white;
+}
+
+#kiri img {
+    width: 200px; 
+    height: auto;
+}
+
+#header {
+    width: 730px;
+    height: 300px;
+    margin: auto;
+    background-image: url(images/header.jpg);
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+    border-bottom-right-radius: 50px;
+    float: right;
+
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#judul {
+    font-size: 50px;
+    text-align: right;
+    padding: 170px 40px 0 0;
+}
+
+#judul a {
+    color: white;
+    text-decoration: none;
+}
+
+#judul a:hover {
+    color: grey;
+}
+
+.desc {
+    font-size: 30px;
+    color: white;
+    text-align: right;
+    padding: 0 40px 0 0;
+}
+
+#menu {
+    width: 730px;
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+    float: right;
+    background: darkblue;
+    position: relative;
+}
+
+#menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+#menu ul li {
+    float: left;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+#menu ul li:hover {
+    background: blue;
+}
+
+#menu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: darkblue;
+    padding: 0;
+}
+
+#menu ul li:hover > ul {
+    display: block;
+}
+
+#menu ul ul li {
+    float: none;
+    position: relative;
+}
+
+#menu ul ul li a {
+    padding: 10px 30px;
+    color: white;
+}
+
+#menu ul ul li a:hover {
+    background: blue;
+}
+
+#konten {
+    width: 690px;
+    height: auto;
+    margin: 0 0 20px;
+    padding: 20px;
+    float: right;
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+}
+
+.posttitle {
+    font-size: 30px;
+    font-family: Arial;
+    color: blue;
+    text-decoration: none;
+}
+
+.post {
+    margin: 0 20px 20px 0;
+    text-align: justify;
+}
+
+.post img {
+    width: 30%;
+    margin: 5px;
+}
+
+#footer {
+    background-color: darkblue;
+    padding: 20px 0 0 0;
+    width: 1000px;
+    height: 90px;
+    clear: both;
+    margin: 20px 0;
+    text-align: center;
+    color: white;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+
+

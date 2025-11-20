@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latihan 2 - Highlight Teks</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        #ptik-text {
+            border: 1px solid #ccc;
+            padding: 15px;
+            max-width: 800px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .highlight {
+            color: red;
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ptik-text">
+        <h3>PTIK FKIP UNS</h3>
+        
+        <p>The <span class="to-highlight">Faculty of Teacher Training and Education</span>, <span class="to-highlight">Sebelas Maret University</span>, Surakarta is an <span class="to-highlight">Educational Personnel Education Institution (LPTK)</span> which has 24 study programs in 6 majors. Each study program has its own characteristics in producing <span class="to-highlight">superior, strong and intelligent educational staff</span>.</p>
+        
+        <p>The <span class="to-highlight">Informatics and Computer Engineering Education (PTIK)</span> study program is planned to take shelter in the management of the <span class="to-highlight">Engineering and Vocational Education (PTK)</span> department. This placement revises our previous statement, where the PTIK study program is under the P.MIPA department. PTIK is a study program that will produce graduates who are <span class="to-highlight">prioritized to teach in vocational/vocational programs</span>. So, it would be better if PTIK was under the PTK department which oversees vocational programs such as <span class="to-highlight">Building Engineering Education</span>, and <span class="to-highlight">Mechanical Engineering Education</span>. To meet the needs of lecturers in the field of information technology that cannot be met by the PTK department, PTIK will conduct <span class="to-highlight">resource sharing with the mathematics study program</span>.</p>
+    </div>
+
+    <button onclick="toggleHighlight()">Highlight Paragraf</button>
+
+    <script>
+        function toggleHighlight() {
+            var elements = document.querySelectorAll('.to-highlight');
+
+            elements.forEach(function(element) {
+                element.classList.toggle('highlight');
+            });
+        }
+    </script>
+
+</body>
+</html>
